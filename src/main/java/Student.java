@@ -37,6 +37,14 @@ public class Student {
         return (int) (sum / grades.size());
     }
 
+    public void updateGrade(int grade, double newGrade) {
+        this.grades.set(grade - 1,newGrade);
+    }
+
+    public void deleteGrade(int grade) {
+        this.getGrades().remove(grade - 1);
+    }
+
     public static void main(String[] args) {
         Student student1 = new Student("miguel", 78737);
         System.out.println(student1.getGradeAverage());
