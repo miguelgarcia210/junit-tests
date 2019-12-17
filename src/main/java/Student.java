@@ -1,38 +1,52 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Student {
 
-    private long id;
     private String name;
-    private ArrayList<Integer> grades;
+    private long id;
+    private ArrayList<Double> grades;
 
-    public Student(long id, String name) {
+    public Student(String name, long id) {
+        this.name = name.trim();
         this.id = id;
-        this.name = name;
-        this.grades = new ArrayList<>();
-    }
-
-    public long getId() {
-        return this.id;
+        grades = new ArrayList<>();
     }
 
     public String getName() {
         return this.name;
     }
 
-    public ArrayList<Integer> getGrades() {
+    public long getId() {
+        return this.id;
+    }
+
+    public ArrayList<Double> getGrades() {
         return this.grades;
     }
 
-    public void addGrade(int grade) {
+    public void addGrade(double grade) {
         this.grades.add(grade);
     }
 
-    public double getGradeAverage() {
+    public int getGradeAverage() {
         double sum = 0;
-        for (int grade: this.grades) {
+        for (Double grade : grades) {
             sum += grade;
         }
-        return sum / this.grades.size() ;
+        return (int) (sum / grades.size());
+    }
+
+    public void updateGrade(int grade, double newGrade) {
+        this.grades.set(grade - 1,newGrade);
+    }
+
+    public void deleteGrade(int grade) {
+        this.getGrades().remove(grade - 1);
+    }
+
+    public static void main(String[] args) {
+        Student student1 = new Student("miguel", 78737);
+        System.out.println(student1.getGradeAverage());
     }
 }
