@@ -14,9 +14,9 @@ public class CohortTest {
     public void setUp() {
         deimos = new Cohort();
         ceres = new Cohort();
-        trent = new Student(78737,"Trent");
-        bob = new Student(91119,"Bob");
-        terrel = new Student(89898, "Terrel");
+        trent = new Student("Trent", 78737);
+        bob = new Student("Bob", 91119);
+        terrel = new Student( "Terrel", 89898);
     }
 
     @Test
@@ -41,7 +41,7 @@ public class CohortTest {
         assertEquals(0, deimos.getStudents().size());
         deimos.addStudent(trent);
         deimos.addStudent(bob);
-        deimos.addStudent(new Student(89898, "Terrel"));
+        deimos.addStudent(new Student("Terrel", 89898));
         assertEquals(3, deimos.getStudents().size());
         trent.addGrade(100);
         bob.addGrade(50);
